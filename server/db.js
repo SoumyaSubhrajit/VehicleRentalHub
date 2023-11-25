@@ -10,7 +10,7 @@
 
 // export default connection;
 
-import { Sequelize } from 'sequelize';
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
   // Your database configuration goes here
@@ -21,4 +21,14 @@ const sequelize = new Sequelize({
   database: 'vehiclerentalhub',
 });
 
-export default sequelize;
+// Check the database connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
+
+module.exports = { sequelize };

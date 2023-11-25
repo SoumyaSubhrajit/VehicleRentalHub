@@ -1,12 +1,16 @@
-// app.js
-import express from 'express';
-import sequelize from './db';
-import vehicleInfoApi from './api/fetchVehicleInfo';
+const express = require('express');
+const sequelize = require('./db.js')
+const vehicleInfoApi = require('./pages/api/fetchVehicleInfo.js');
+
 // import bookingApi from './api/booking'; 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+app.get('/', (req, res) => {
+  res.send("<h1>Hello</h1>");
+})
 // Use the sequelize instance in your API routes
 app.set('sequelize', sequelize);
 
@@ -15,7 +19,7 @@ app.use(express.json());
 
 // API Routes
 app.use('/api/fetchVehicleInfo', vehicleInfoApi);
-app.use('/api/booking', bookingApi);
+// app.use('/api/booking', bookingApi);
 
 // Start the server
 app.listen(PORT, () => {
