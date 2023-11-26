@@ -2,6 +2,7 @@ const express = require('express');
 const sequelize = require('./db.js')
 const vehicleInfoApi = require('./pages/api/fetchVehicleInfo.js');
 const numberWheelApi = require('./pages/api/numberWheel.js');
+const fetchModelApi = require('./pages/api/fetchModels.js');
 
 // import bookingApi from './api/booking'; 
 
@@ -20,7 +21,8 @@ app.use(express.json());
 
 app.use('/api/fetchVehicleInfo', vehicleInfoApi);
 app.use('/api/numberWheel', numberWheelApi);
-// For selecting 
+app.use('/api/models', fetchModelApi);
+
 // app.use('/api/booking', bookingApi);
 
 // Start the server
