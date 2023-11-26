@@ -1,15 +1,3 @@
-// // db.js
-// import { createConnection } from 'mysql2/promise';
-
-// const connection = createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: 'kanha456',
-//   database: 'vehiclerentalhub',
-// });
-
-// export default connection;
-
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
