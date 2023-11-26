@@ -1,6 +1,7 @@
 const express = require('express');
 const sequelize = require('./db.js')
 const vehicleInfoApi = require('./pages/api/fetchVehicleInfo.js');
+const numberWheelApi = require('./pages/api/numberWheel.js');
 
 // import bookingApi from './api/booking'; 
 
@@ -17,8 +18,9 @@ app.set('sequelize', sequelize);
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// API Routes
 app.use('/api/fetchVehicleInfo', vehicleInfoApi);
+app.use('/api/numberWheel', numberWheelApi);
+// For selecting 
 // app.use('/api/booking', bookingApi);
 
 // Start the server
