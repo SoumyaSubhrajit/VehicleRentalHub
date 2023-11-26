@@ -1,5 +1,5 @@
 // pages/api/fetchVehicleInfo.js
-const { sequelize } = require('../../db');  // Adjust the path based on your project structure
+const { sequelize } = require('../../db');
 const express = require('express');
 const router = express.Router();
 
