@@ -3,8 +3,8 @@ const sequelize = require('./db.js')
 const vehicleInfoApi = require('./pages/api/fetchVehicleInfo.js');
 const numberWheelApi = require('./pages/api/numberWheel.js');
 const fetchModelApi = require('./pages/api/fetchModels.js');
-
-// import bookingApi from './api/booking'; 
+const bookingApi = require('./pages/api/booking.js');
+const validateBookingData = require('./pages/api/validationMiddleware.js')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +22,7 @@ app.use(express.json());
 app.use('/api/fetchVehicleInfo', vehicleInfoApi);
 app.use('/api/numberWheel', numberWheelApi);
 app.use('/api/models', fetchModelApi);
+app.use('/api/booking', bookingApi)
 
 // app.use('/api/booking', bookingApi);
 
