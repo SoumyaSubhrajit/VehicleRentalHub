@@ -1,40 +1,58 @@
-# VehicleRentalHub
+# VehicleRentalHub Project Documentation
 
-Welcome to VehicleRentalHub! 🚗🔧
+## Overview
+The VehicleRentalHub project is a web application that facilitates the rental of vehicles, including cars and bikes. This document provides a comprehensive overview of the project, its structure, and key components.
 
-This project is part of a coding assignment that involves creating a vehicle rental system. Below, you'll find information on the assignment, the technology stack, and instructions for Windows 10 users.
+## Project Structure
+The project is structured into several components:
 
-## Assignment
+- **Backend**: The backend server is implemented using Node.js and Express.js. It handles API requests, interacts with the database, and manages vehicle bookings.
 
-The goal of this project is to design an API for a frontend application that collects user information and data about vehicles to rent, along with rental dates. The project involves the use of Node.js, a chosen framework (Nest.js preferred), an SQL database, and validation libraries.
+- **Database**: MySQL is used as the database management system. The database schema includes tables for vehicles, bookings, and various models for cars and bikes.
 
-### Instructions
+## Database Schema
+The MySQL database includes the following tables:
 
-- [x] Seed initial data into the database.
-- [x] Create necessary APIs for the frontend.
-- [x] Design a submit API to receive relevant data for booking a vehicle.
+- `car_types`, `bike_types`: Tables for defining types of cars and bikes.
+- `vehicles`: Table storing information about vehicles, including type, number of wheels, and references to specific car/bike types.
+- `bookings`: Table for managing bookings, including information about the vehicle, user, and booking dates.
 
-### Points to Note
+## Models
+Specific models for car and bike types are included in separate tables:
 
-- Make validation checks on the backend wherever necessary.
-- Implement appropriate error handling.
-- Using Docker is a plus.
+- `cruiser_models`, `sports_models`: Tables for bike models.
+- `hatchback_models`, `suv_models`, `sedan_models`: Tables for car models.
 
-## Technology Stack
+## API Endpoints
+The API provides various endpoints for interacting with the application. Key endpoints include:
 
-- **Node.js**: JavaScript runtime.
-- **Nest.js**: Framework for building efficient, scalable server-side applications.
-- **SQL Database**: Store and manage data.
-- **Validation Library**: Ensure data integrity.
+- **GET /api/vehicles**: Retrieve information about all vehicles.
+- **POST /api/bookings**: Create a new booking.
+- **GET /api/models**: Retrive all the models of respective car or bike types
 
-## Instructions for Windows 10 Users
+**Note:** The specific details about API endpoints and request/response formats are not provided in the available information.
 
-If you are using Windows 10 for development, consider the following:
+## Deployment
+The deployment process involves setting up a Node.js environment, installing dependencies, configuring the database connection, and running the server. Dockerization is optional but can be implemented.
 
-### Line Endings Warning
+## CI/CD Pipeline
+Continuous Integration and Continuous Deployment (CI/CD) can be set up using tools like GitHub Actions or Jenkins. The pipeline can include steps for testing, building, and deploying the application.
 
-- If you encounter Git warnings about line endings, create a `.gitattributes` file with the following content:
+## Testing
+Unit tests should be written using testing libraries like Jest. End-to-end testing using tools like Supertest is also recommended.
 
-  ```plaintext
-  * -text
-  ```
+## Common Errors
+- **Database Connection Error**: `ECONNREFUSED 127.0.0.1:3306` indicates a failure to connect to the MySQL database. Ensure the database server is running.
+
+## Commands and Scripts
+- **Start Server**: `npm start`
+- **Run Tests**: `npm test`
+- **Docker Build**: `docker build -t your-image-name .`
+
+## Additional Notes
+Include any additional notes, instructions, or considerations relevant to the project.
+
+---
+
+**Author:** Soumya Subhrajit Bag
+**Last Updated:** 28/11/23
