@@ -1,0 +1,36 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+deploy:
+  runs-on: ubuntu-latest
+  needs: build
+  steps:
+    - name: Deploy to Server
+      run: |
+        ssh user@your-server 'cd E:/VehicleRentalHub/server && git pull origin main'
+        ssh user@your-server 'cd E:/VehicleRentalHub/server && npm install'
+        ssh user@your-server 'cd E:/VehicleRentalHub/server && npm run migrate'
+        ssh user@your-server 'cd E:/VehicleRentalHub/server && npm restart'
