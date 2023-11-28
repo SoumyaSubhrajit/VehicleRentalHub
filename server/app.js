@@ -19,7 +19,7 @@ app.set('sequelize', sequelize);
 // Middleware to parse JSON requests
 app.use(express.json());
 
-app.use('/api/fetchVehicleInfo', vehicleInfoApi);
+app.use('/api/vehicles', vehicleInfoApi);
 app.use('/api/numberWheel', numberWheelApi);
 app.use('/api/models', fetchModelApi);
 app.use('/api/booking', bookingApi)
