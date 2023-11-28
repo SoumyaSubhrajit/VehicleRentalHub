@@ -1,4 +1,4 @@
-// pages/api/fetchVehicleInfo.js
+
 const { sequelize } = require('../../db');
 const express = require('express');
 const router = express.Router();
@@ -6,8 +6,6 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const { type } = req.query;
-
-    // Validate the 'type' parameter
     if (!['car', 'bike'].includes(type)) {
       return res.status(400).json({ error: 'Invalid vehicle type' });
     }

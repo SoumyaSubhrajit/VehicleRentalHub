@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
-  // Your database configuration goes here
   dialect: 'mysql',
   host: 'localhost',
   username: 'root',
@@ -9,7 +8,6 @@ const sequelize = new Sequelize({
   database: 'vehiclerentalhub',
 });
 
-// Check the database connection
 sequelize
   .authenticate()
   .then(() => {

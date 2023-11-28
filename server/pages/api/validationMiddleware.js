@@ -29,23 +29,15 @@ const validateBookingData = [
 
   async (req, res, next) => {
     try {
-      // Extract relevant data from the request
       const { vehicleId, startDate, endDate } = req.body;
-
-      // Check if required data is provided
       if (!vehicleId || !startDate || !endDate) {
         return res.status(400).json({ error: 'Missing required data' });
       }
 
-      // Check for overlapping bookings
       const hasOverlappingBookings = await checkForOverlappingBookings(vehicleId, startDate, endDate);
-
-      // If there are overlapping bookings, return an error
       if (hasOverlappingBookings) {
         return res.status(400).json({ error: 'Overlapping bookings detected' });
       }
-
-      // If there are no overlapping bookings, move to the next middleware
       next();
     } catch (error) {
       console.error(error);
