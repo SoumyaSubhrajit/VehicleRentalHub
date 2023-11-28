@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 app.get('/', (req, res) => {
   res.send("<h1>Hello</h1>");
 })
-// Use the sequelize instance in your API routes
+
 app.set('sequelize', sequelize);
 
 // Middleware to parse JSON requests
@@ -23,8 +23,6 @@ app.use('/api/vehicles', vehicleInfoApi);
 app.use('/api/numberWheel', numberWheelApi);
 app.use('/api/models', fetchModelApi);
 app.use('/api/booking', bookingApi)
-
-// app.use('/api/booking', bookingApi);
 
 // Start the server
 app.listen(PORT, () => {

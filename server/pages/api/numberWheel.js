@@ -6,8 +6,6 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const { wheels } = req.query;
-
-    // Validate the 'wheels' parameter
     if (![2, 4].includes(Number(wheels))) {
       return res.status(400).json({ error: 'Invalid number of wheels' });
     }

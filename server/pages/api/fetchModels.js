@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { sequelize } = require('../../db');
 
-// Endpoint to fetch all cruiser models
 router.get('/cruiser', async (req, res) => {
   try {
     const query = 'SELECT name  FROM cruiser_models'
@@ -15,7 +14,6 @@ router.get('/cruiser', async (req, res) => {
   }
 });
 
-// Endpoint to fetch all sports models
 router.get('/sports', async (req, res) => {
   try {
     const query = 'SELECT name FROM sports_models'
@@ -29,7 +27,7 @@ router.get('/sports', async (req, res) => {
 
 
 
-// Endpoint to fetch all hatchback models
+
 router.get('/hatchback', async (req, res) => {
   try {
     const query = 'SELECT name FROM hatchback_models'
@@ -41,7 +39,6 @@ router.get('/hatchback', async (req, res) => {
   }
 });
 
-// Endpoint to fetch all SUV models
 router.get('/suv', async (req, res) => {
   try {
     const query = 'SELECT name FROM suv_models'
@@ -53,7 +50,6 @@ router.get('/suv', async (req, res) => {
   }
 });
 
-// Endpoint to fetch all sedan models
 router.get('/sedan', async (req, res) => {
   try {
     const query = 'SELECT name FROM sedan_models'
